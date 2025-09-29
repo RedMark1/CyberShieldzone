@@ -1,0 +1,230 @@
+[
+  {
+    "target": "https://nmap.org",
+    "scanned_at": "2025-09-29T04:54:13.914424Z",
+    "results": {
+      "http_fetch": {
+        "status_code": 200,
+        "final_url": "https://nmap.org/",
+        "headers": {
+          "Date": "Mon, 29 Sep 2025 04:54:15 GMT",
+          "Server": "Apache/2.4.6 (CentOS)",
+          "Strict-Transport-Security": "max-age=31536000; preload",
+          "Vary": "Host",
+          "Accept-Ranges": "bytes",
+          "Keep-Alive": "timeout=5, max=100",
+          "Connection": "Keep-Alive",
+          "Transfer-Encoding": "chunked",
+          "Content-Type": "text/html; charset=utf-8"
+        }
+      },
+      "security_headers": {
+        "present": {
+          "Strict-Transport-Security": "max-age=31536000; preload"
+        },
+        "missing": [
+          "X-Frame-Options",
+          "X-Content-Type-Options",
+          "Content-Security-Policy",
+          "Referrer-Policy",
+          "Permissions-Policy"
+        ]
+      },
+      "tls": {
+        "notBefore": "Sep 20 09:04:16 2025 GMT",
+        "notAfter": "Dec 19 09:04:15 2025 GMT",
+        "subject": [
+          [
+            [
+              "commonName",
+              "insecure.com"
+            ]
+          ]
+        ],
+        "issuer": [
+          [
+            [
+              "countryName",
+              "US"
+            ]
+          ],
+          [
+            [
+              "organizationName",
+              "Let's Encrypt"
+            ]
+          ],
+          [
+            [
+              "commonName",
+              "R12"
+            ]
+          ]
+        ]
+      },
+      "robots_sitemap": {
+        "/robots.txt": {
+          "status_code": 200,
+          "length": 602
+        },
+        "/sitemap.xml": {
+          "status_code": 200,
+          "length": 9922
+        }
+      },
+      "common_endpoints": {
+        "/": {
+          "status_code": 200,
+          "final_url": "https://nmap.org/"
+        },
+        "/robots.txt": {
+          "status_code": 200,
+          "final_url": "https://nmap.org/robots.txt"
+        },
+        "/sitemap.xml": {
+          "status_code": 200,
+          "final_url": "https://nmap.org/sitemap.xml"
+        },
+        "/admin/": {
+          "status_code": 404,
+          "final_url": "https://nmap.org/admin/"
+        },
+        "/login": {
+          "status_code": 404,
+          "final_url": "https://nmap.org/login"
+        },
+        "/.git/": {
+          "status_code": 404,
+          "final_url": "https://nmap.org/.git/"
+        },
+        "/backup/": {
+          "status_code": 404,
+          "final_url": "https://nmap.org/backup/"
+        },
+        "/env": {
+          "status_code": 404,
+          "final_url": "https://nmap.org/env"
+        },
+        "/wp-admin/": {
+          "status_code": 404,
+          "final_url": "https://nmap.org/wp-admin/"
+        }
+      }
+    },
+    "elapsed_seconds": 17.99
+  },
+  {
+    "target": "https://nmap.org",
+    "scanned_at": "2025-09-29T04:48:20.595054Z",
+    "results": {
+      "http_fetch": {
+        "status_code": 200,
+        "final_url": "https://nmap.org/",
+        "headers": {
+          "Date": "Mon, 29 Sep 2025 04:48:22 GMT",
+          "Server": "Apache/2.4.6 (CentOS)",
+          "Strict-Transport-Security": "max-age=31536000; preload",
+          "Vary": "Host",
+          "Accept-Ranges": "bytes",
+          "Keep-Alive": "timeout=5, max=100",
+          "Connection": "Keep-Alive",
+          "Transfer-Encoding": "chunked",
+          "Content-Type": "text/html; charset=utf-8"
+        }
+      },
+      "security_headers": {
+        "present": {
+          "Strict-Transport-Security": "max-age=31536000; preload"
+        },
+        "missing": [
+          "X-Frame-Options",
+          "X-Content-Type-Options",
+          "Content-Security-Policy",
+          "Referrer-Policy",
+          "Permissions-Policy"
+        ]
+      },
+      "tls": {
+        "notBefore": "Sep 20 09:04:16 2025 GMT",
+        "notAfter": "Dec 19 09:04:15 2025 GMT",
+        "subject": [
+          [
+            [
+              "commonName",
+              "insecure.com"
+            ]
+          ]
+        ],
+        "issuer": [
+          [
+            [
+              "countryName",
+              "US"
+            ]
+          ],
+          [
+            [
+              "organizationName",
+              "Let's Encrypt"
+            ]
+          ],
+          [
+            [
+              "commonName",
+              "R12"
+            ]
+          ]
+        ]
+      },
+      "robots_sitemap": {
+        "/robots.txt": {
+          "status_code": 200,
+          "length": 602
+        },
+        "/sitemap.xml": {
+          "status_code": 200,
+          "length": 9922
+        }
+      },
+      "common_endpoints": {
+        "/": {
+          "status_code": 200,
+          "final_url": "https://nmap.org/"
+        },
+        "/robots.txt": {
+          "status_code": 200,
+          "final_url": "https://nmap.org/robots.txt"
+        },
+        "/sitemap.xml": {
+          "status_code": 200,
+          "final_url": "https://nmap.org/sitemap.xml"
+        },
+        "/admin/": {
+          "status_code": 404,
+          "final_url": "https://nmap.org/admin/"
+        },
+        "/login": {
+          "status_code": 404,
+          "final_url": "https://nmap.org/login"
+        },
+        "/.git/": {
+          "status_code": 404,
+          "final_url": "https://nmap.org/.git/"
+        },
+        "/backup/": {
+          "status_code": 404,
+          "final_url": "https://nmap.org/backup/"
+        },
+        "/env": {
+          "status_code": 404,
+          "final_url": "https://nmap.org/env"
+        },
+        "/wp-admin/": {
+          "status_code": 404,
+          "final_url": "https://nmap.org/wp-admin/"
+        }
+      }
+    },
+    "elapsed_seconds": 18.76
+  }
+]
