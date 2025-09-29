@@ -1,29 +1,34 @@
 [
   {
-    "target": "https://nmap.org",
-    "scanned_at": "2025-09-29T04:54:13.914424Z",
+    "target": "https://google.com",
+    "scanned_at": "2025-09-29T05:14:47.989632Z",
     "results": {
       "http_fetch": {
         "status_code": 200,
-        "final_url": "https://nmap.org/",
+        "final_url": "https://www.google.com/",
         "headers": {
-          "Date": "Mon, 29 Sep 2025 04:54:15 GMT",
-          "Server": "Apache/2.4.6 (CentOS)",
-          "Strict-Transport-Security": "max-age=31536000; preload",
-          "Vary": "Host",
-          "Accept-Ranges": "bytes",
-          "Keep-Alive": "timeout=5, max=100",
-          "Connection": "Keep-Alive",
-          "Transfer-Encoding": "chunked",
-          "Content-Type": "text/html; charset=utf-8"
+          "Date": "Mon, 29 Sep 2025 05:14:48 GMT",
+          "Expires": "-1",
+          "Cache-Control": "private, max-age=0",
+          "Content-Type": "text/html; charset=ISO-8859-1",
+          "Content-Security-Policy-Report-Only": "object-src 'none';base-uri 'self';script-src 'nonce-0WTzIlT4AG6BkIFUHmrsxQ' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp",
+          "Accept-CH": "Sec-CH-Prefers-Color-Scheme",
+          "P3P": "CP=\"This is not a P3P policy! See g.co/p3phelp for more info.\"",
+          "Content-Encoding": "gzip",
+          "Server": "gws",
+          "X-XSS-Protection": "0",
+          "X-Frame-Options": "SAMEORIGIN",
+          "Set-Cookie": "AEC=AaJma5sdCDtSg-l4zXfq7itIxjkn5aEa4b0TqUdSvgbf4IOw8xDRNAo3r6k; expires=Sat, 28-Mar-2026 05:14:48 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax, NID=525=AMhg9L18k1Q_Y773bdXMslgcd0t5CPalnktOFWudP8mLNDhAt9mwsIJA7k0kiuxEQR7Wec_QDcC25UV8K_KZ3oFxTvXrS4ldNAdNxpj-D_neQscHWRv5l6TKlG0xkHeBe5z8gJqZVf0rU_apdw87ydzX9iTBCSriHDyX7MebfuqRgJu6f6Mw8YCHd-2-i8wlkqZjFMJNhnXp0L_tzw; expires=Tue, 31-Mar-2026 05:14:48 GMT; path=/; domain=.google.com; HttpOnly",
+          "Alt-Svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+          "Transfer-Encoding": "chunked"
         }
       },
       "security_headers": {
         "present": {
-          "Strict-Transport-Security": "max-age=31536000; preload"
+          "X-Frame-Options": "SAMEORIGIN"
         },
         "missing": [
-          "X-Frame-Options",
+          "Strict-Transport-Security",
           "X-Content-Type-Options",
           "Content-Security-Policy",
           "Referrer-Policy",
@@ -31,13 +36,13 @@
         ]
       },
       "tls": {
-        "notBefore": "Sep 20 09:04:16 2025 GMT",
-        "notAfter": "Dec 19 09:04:15 2025 GMT",
+        "notBefore": "Sep  8 08:34:53 2025 GMT",
+        "notAfter": "Dec  1 08:34:52 2025 GMT",
         "subject": [
           [
             [
               "commonName",
-              "insecure.com"
+              "*.google.com"
             ]
           ]
         ],
@@ -51,13 +56,13 @@
           [
             [
               "organizationName",
-              "Let's Encrypt"
+              "Google Trust Services"
             ]
           ],
           [
             [
               "commonName",
-              "R12"
+              "WR2"
             ]
           ]
         ]
@@ -65,166 +70,52 @@
       "robots_sitemap": {
         "/robots.txt": {
           "status_code": 200,
-          "length": 602
+          "length": 7153
         },
         "/sitemap.xml": {
           "status_code": 200,
-          "length": 9922
+          "length": 2055
         }
       },
       "common_endpoints": {
         "/": {
           "status_code": 200,
-          "final_url": "https://nmap.org/"
+          "final_url": "https://www.google.com/"
         },
         "/robots.txt": {
           "status_code": 200,
-          "final_url": "https://nmap.org/robots.txt"
+          "final_url": "https://www.google.com/robots.txt"
         },
         "/sitemap.xml": {
           "status_code": 200,
-          "final_url": "https://nmap.org/sitemap.xml"
+          "final_url": "https://www.google.com/sitemap.xml"
         },
         "/admin/": {
           "status_code": 404,
-          "final_url": "https://nmap.org/admin/"
+          "final_url": "https://google.com/admin/"
         },
         "/login": {
           "status_code": 404,
-          "final_url": "https://nmap.org/login"
+          "final_url": "https://google.com/login"
         },
         "/.git/": {
           "status_code": 404,
-          "final_url": "https://nmap.org/.git/"
+          "final_url": "https://google.com/.git/"
         },
         "/backup/": {
           "status_code": 404,
-          "final_url": "https://nmap.org/backup/"
+          "final_url": "https://google.com/backup/"
         },
         "/env": {
           "status_code": 404,
-          "final_url": "https://nmap.org/env"
+          "final_url": "https://google.com/env"
         },
         "/wp-admin/": {
           "status_code": 404,
-          "final_url": "https://nmap.org/wp-admin/"
+          "final_url": "https://google.com/wp-admin/"
         }
       }
     },
-    "elapsed_seconds": 17.99
-  },
-  {
-    "target": "https://nmap.org",
-    "scanned_at": "2025-09-29T04:48:20.595054Z",
-    "results": {
-      "http_fetch": {
-        "status_code": 200,
-        "final_url": "https://nmap.org/",
-        "headers": {
-          "Date": "Mon, 29 Sep 2025 04:48:22 GMT",
-          "Server": "Apache/2.4.6 (CentOS)",
-          "Strict-Transport-Security": "max-age=31536000; preload",
-          "Vary": "Host",
-          "Accept-Ranges": "bytes",
-          "Keep-Alive": "timeout=5, max=100",
-          "Connection": "Keep-Alive",
-          "Transfer-Encoding": "chunked",
-          "Content-Type": "text/html; charset=utf-8"
-        }
-      },
-      "security_headers": {
-        "present": {
-          "Strict-Transport-Security": "max-age=31536000; preload"
-        },
-        "missing": [
-          "X-Frame-Options",
-          "X-Content-Type-Options",
-          "Content-Security-Policy",
-          "Referrer-Policy",
-          "Permissions-Policy"
-        ]
-      },
-      "tls": {
-        "notBefore": "Sep 20 09:04:16 2025 GMT",
-        "notAfter": "Dec 19 09:04:15 2025 GMT",
-        "subject": [
-          [
-            [
-              "commonName",
-              "insecure.com"
-            ]
-          ]
-        ],
-        "issuer": [
-          [
-            [
-              "countryName",
-              "US"
-            ]
-          ],
-          [
-            [
-              "organizationName",
-              "Let's Encrypt"
-            ]
-          ],
-          [
-            [
-              "commonName",
-              "R12"
-            ]
-          ]
-        ]
-      },
-      "robots_sitemap": {
-        "/robots.txt": {
-          "status_code": 200,
-          "length": 602
-        },
-        "/sitemap.xml": {
-          "status_code": 200,
-          "length": 9922
-        }
-      },
-      "common_endpoints": {
-        "/": {
-          "status_code": 200,
-          "final_url": "https://nmap.org/"
-        },
-        "/robots.txt": {
-          "status_code": 200,
-          "final_url": "https://nmap.org/robots.txt"
-        },
-        "/sitemap.xml": {
-          "status_code": 200,
-          "final_url": "https://nmap.org/sitemap.xml"
-        },
-        "/admin/": {
-          "status_code": 404,
-          "final_url": "https://nmap.org/admin/"
-        },
-        "/login": {
-          "status_code": 404,
-          "final_url": "https://nmap.org/login"
-        },
-        "/.git/": {
-          "status_code": 404,
-          "final_url": "https://nmap.org/.git/"
-        },
-        "/backup/": {
-          "status_code": 404,
-          "final_url": "https://nmap.org/backup/"
-        },
-        "/env": {
-          "status_code": 404,
-          "final_url": "https://nmap.org/env"
-        },
-        "/wp-admin/": {
-          "status_code": 404,
-          "final_url": "https://nmap.org/wp-admin/"
-        }
-      }
-    },
-    "elapsed_seconds": 18.76
+    "elapsed_seconds": 7.2
   }
 ]

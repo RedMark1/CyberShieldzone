@@ -31,6 +31,7 @@ NVD_API_URL = "https://services.nvd.nist.gov/rest/json/cves/2.0"
 
 st.set_page_config(page_title="CyberShield", layout="wide")
 
+# --- Utility Functions ---
 def normalize_url(user_input: str) -> str:
     if not user_input.startswith(("http://", "https://")):
         user_input = "https://" + user_input
@@ -245,7 +246,7 @@ def password_strength(password):
     if score == 3: return "Medium", suggestions
     return "Strong", suggestions
 
-# --- Responsive Dashboard UI ---
+# --- Branding & Styles ---
 st.markdown("""
     <style>
     .css-1d391kg {padding-top:0;}
@@ -259,12 +260,43 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
+# --- Expected Outcomes Section ---
+def expected_outcomes_card():
+    icons = [
+        "🛡️",  # Single platform
+        "📑",  # Consolidated reports
+        "🗺️",  # Visualized attack paths
+        "👩‍💻", # User-friendly for all
+    ]
+    points = [
+        "Single platform for multiple scanners",
+        "Consolidated, structured vulnerability reports",
+        "Visualized attack paths",
+        "User-friendly interface for professionals or students"
+    ]
+    st.markdown(
+        "<div style='background: #f2f5fa; border-radius:12px; box-shadow:0 2px 8px #0d253f15; margin-bottom:1rem; padding:1rem;'>"
+        "<h4 style='margin-top:0; color:#0D253F;'>🚀 Expected Outcomes</h4>"
+        "</div>",
+        unsafe_allow_html=True
+    )
+    cols = st.columns(4)
+    for i, col in enumerate(cols):
+        col.markdown(
+            f"<div style='text-align:center; padding:0.7rem 0; border-radius: 10px; background: #ecf0f7;'>"
+            f"<span style='font-size:2.5rem'>{icons[i]}</span><br>"
+            f"<span style='font-size:1rem; color:#0D253F; font-weight:500'>{points[i]}</span>"
+            "</div>", unsafe_allow_html=True
+        )
+
+# --- Brand Header ---
 st.markdown(
     '<div style="background: #0D253F; padding: 1rem 0 0.5rem 0; color: white; text-align:center; border-radius:8px 8px 0 0;">'
     '<h2 style="margin:0; letter-spacing:1px;">CyberShield</h2></div>',
     unsafe_allow_html=True
 )
 
+# --- Menu Sidebar ---
 with st.sidebar:
     st.markdown(
         "<h3 style='color:#0D253F; text-align:left;'>Menu</h3>", unsafe_allow_html=True
@@ -275,6 +307,19 @@ with st.sidebar:
         index=0,
         label_visibility="collapsed"
     )
+    st.markdown("---")
+    expected_outcomes_card()
+
+# --- Main Expected Outcomes (for first-time users, always prominent) ---
+expected_outcomes_card()
+
+# --- Session State Initialization ---
+if "scan_running" not in st.session_state:
+    st.session_state.scan_running = False
+if "phish_running" not in st.session_state:
+    st.session_state.phish_running = False
+if "pw_running" not in st.session_state:
+    st.session_state.pw_running = False
 
 # --- Scanner Page ---
 if page == "Scanner":
@@ -293,6 +338,35 @@ if page == "Scanner":
             if not target:
                 st.error("Please provide a target domain or URL.")
             else:
+                st.session_state.scan_running = True
+                # Responsive scanning animation
+                scan_placeholder = st.empty()
+                progress_placeholder = st.empty()
+                status_placeholder = st.empty()
+                animation_steps = [
+                    "Initializing scan...",
+                    "Connecting to target...",
+                    "Probing endpoints...",
+                    "Analyzing headers...",
+                    "Checking TLS/SSL...",
+                    "Gathering vulnerability intelligence...",
+                    "Finalizing report..."
+                ]
+                for i, text in enumerate(animation_steps):
+                    progress = (i + 1) / len(animation_steps)
+                    with scan_placeholder.container():
+                        st.markdown(
+                            f"<div style='text-align:center;padding-top:1rem;'>"
+                            f"<span style='font-size:2.5rem;'>{'🔎' if i%2==0 else '🛡️'}</span><br>"
+                            f"<span style='color:#0D253F;font-weight:500;font-size:1.2rem'>{text}</span>"
+                            "</div>", unsafe_allow_html=True
+                        )
+                    progress_placeholder.progress(progress)
+                    time.sleep(0.27)
+                scan_placeholder.empty()
+                progress_placeholder.empty()
+                st.session_state.scan_running = False
+
                 base = normalize_url(target)
                 parsed = urlparse(base)
                 hostname = parsed.hostname or ""
@@ -533,7 +607,6 @@ if page == "Scanner":
                         st.info(f"PDF export error: {e}")
                 else:
                     st.info("No vulnerabilities found to report.")
-                # Save to history
                 if submit and 'results' in scan_report:
                     history = load_history()
                     history.insert(0, scan_report)
@@ -640,6 +713,30 @@ elif page == "Phishing Detection":
         if not url:
             st.error("Please enter a URL.")
         else:
+            st.session_state.phish_running = True
+            scan_placeholder = st.empty()
+            progress_placeholder = st.empty()
+            animation_steps = [
+                "Analyzing URL...",
+                "Checking domain reputation...",
+                "Scanning for suspicious patterns...",
+                "Finalizing analysis..."
+            ]
+            for i, text in enumerate(animation_steps):
+                progress = (i + 1) / len(animation_steps)
+                with scan_placeholder.container():
+                    st.markdown(
+                        f"<div style='text-align:center;padding-top:1rem;'>"
+                        f"<span style='font-size:2.5rem;'>{'🔗' if i%2==0 else '⚠️'}</span><br>"
+                        f"<span style='color:#0D253F;font-weight:500;font-size:1.15rem'>{text}</span>"
+                        "</div>", unsafe_allow_html=True
+                    )
+                progress_placeholder.progress(progress)
+                time.sleep(0.28)
+            scan_placeholder.empty()
+            progress_placeholder.empty()
+            st.session_state.phish_running = False
+
             result = phishing_check(url)
             if result == "Safe":
                 st.success("Result: Safe (No phishing detected).")
@@ -657,6 +754,30 @@ elif page == "Password Strength Tester":
         show_suggestions = st.checkbox("Show improvement suggestions", value=True)
         submit = st.form_submit_button("Test Strength")
     if submit:
+        st.session_state.pw_running = True
+        scan_placeholder = st.empty()
+        progress_placeholder = st.empty()
+        animation_steps = [
+            "Analyzing password...",
+            "Checking for length and complexity...",
+            "Evaluating strength...",
+            "Finalizing results..."
+        ]
+        for i, text in enumerate(animation_steps):
+            progress = (i + 1) / len(animation_steps)
+            with scan_placeholder.container():
+                st.markdown(
+                    f"<div style='text-align:center;padding-top:1rem;'>"
+                    f"<span style='font-size:2.5rem;'>{'🔒' if i%2==0 else '🔑'}</span><br>"
+                    f"<span style='color:#0D253F;font-weight:500;font-size:1.15rem'>{text}</span>"
+                    "</div>", unsafe_allow_html=True
+                )
+            progress_placeholder.progress(progress)
+            time.sleep(0.22)
+        scan_placeholder.empty()
+        progress_placeholder.empty()
+        st.session_state.pw_running = False
+
         if not password:
             st.error("Please enter a password.")
         else:
